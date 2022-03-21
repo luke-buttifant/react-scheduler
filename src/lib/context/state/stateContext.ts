@@ -41,6 +41,7 @@ export const defaultProps = {
     weekStartOn: 6,
     startHour: 9,
     endHour: 17,
+    textColor: "#000000"
   },
   week: {
     weekDays: [0, 1, 2, 3, 4, 5],

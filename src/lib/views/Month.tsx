@@ -12,7 +12,7 @@ import {
 } from "date-fns";
 import MonthEvents from "../components/events/MonthEvents";
 import { useAppState } from "../hooks/useAppState";
-import { CellRenderedProps, DayHours, DefaultRecourse } from "../types";
+import { CellRenderedProps, DayHours, DefaultRecourse, TextColor } from "../types";
 import { getResourcedEvents } from "../helpers/generals";
 import { WithResources } from "../components/common/WithResources";
 import { Cell } from "../components/common/Cell";
@@ -24,6 +24,7 @@ export interface MonthProps {
   weekStartOn: WeekDays;
   startHour: DayHours;
   endHour: DayHours;
+  textColor: TextColor;
   cellRenderer?(props: CellRenderedProps): JSX.Element;
 }
 
@@ -43,7 +44,7 @@ const Month = () => {
     fields,
   } = useAppState();
 
-  const { weekStartOn, weekDays, startHour, endHour, cellRenderer } = month!;
+  const { weekStartOn, weekDays, startHour, endHour,textColor, cellRenderer } = month!;
   const monthStart = startOfMonth(selectedDate);
   const monthEnd = endOfMonth(selectedDate);
   const eachWeekStart = eachWeekOfInterval(
@@ -154,7 +155,7 @@ const Month = () => {
               >
                 <Typography
                   color={
-                    !isSameMonth(today, monthStart) ? "#ccc" : "textPrimary"
+                    !isSameMonth(today, monthStart) ? "#ccc" : textColor
                   }
                   className="rs__hover__op"
                   onClick={(e) => {

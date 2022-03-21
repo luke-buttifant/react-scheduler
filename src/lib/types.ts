@@ -6,6 +6,7 @@ import { DialogProps, GridSize } from "@mui/material";
 import { Locale } from "date-fns";
 import { SelectOption } from "./components/inputs/SelectInput";
 import { View } from "./components/nav/Navigation";
+import { type } from "os";
 
 export type DayHours =
   | 0
@@ -32,6 +33,11 @@ export type DayHours =
   | 21
   | 22
   | 23;
+
+export type TextColor = {
+    color?: string;
+  };
+
 export interface CellRenderedProps {
   day: Date;
   start: Date;
